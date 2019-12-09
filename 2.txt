@@ -1,0 +1,13 @@
+
+询价项目前端工作
+1.添加新增地址页面，可以新增修改地址信息
+2.添加管理地址信息列表，可以分页，可以搜索
+3.添加新增发票信息界面，可以新增可以修改
+4.新增维护发票信息界面，发票信息可以分页
+5.需要新增下单界面，从报价单进入，可以选择商品，可以输入数量，可以选择地址，可以选择发票。
+6.新增退货页面，从订单处点击进入，可以选择退货商品，退货数量，可以输入退货原因
+
+apk签名
+keytool -genkey -v -keystore zfdemo.keystore -alias zfdemo -keyalg RSA -keysize 2048 -validity 20000
+keytool -importkeystore -srckeystore zfdemo.keystore -destkeystore zfdemo.keystore -deststoretype pkcs12
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore zfdemo.keystore app-release-unsigned.apk zfdemo

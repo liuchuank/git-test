@@ -1,0 +1,11 @@
+confirm(ev) {
+        ev.currentTarget.disabled = true;
+        this.settlementOfAccountsService.distribute(this.data).subscribe(data => {
+            ev.target.disabled = false;
+            const url = data['resultCode'] === 1 ? './settlement-of-accounts-sucess' : './settlement-of-accounts-failed';
+            this.router.navigate([url], {
+                skipLocationChange: true,
+                queryParams: {data: JSON.stringify(this.data)}
+            });
+        });
+    }
